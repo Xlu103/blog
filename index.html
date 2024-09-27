@@ -1,382 +1,212 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible"
-	      content="IE=edge">
-	<meta name="viewport"
-	      content="width=device-width, initial-scale=1.0">
-	<title>Xlu Stout 的个人博客</title>
-	<link rel="shortcut icon"
-	      href="./assets/images/头像_mini.ico"
-	      type="image/x-icon">
-
-	<link rel="stylesheet"
-	      href="./assets/css/style.min.css">
-	<link rel="stylesheet"
-	      href="./assets/css/iconfont.css">
-
-	<link rel="preconnect"
-	      href="https://fonts.googleapis.com">
-	<link rel="preconnect"
-	      href="https://fonts.gstatic.com"
-	      crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap"
-	      rel="stylesheet">
-	<meta name="referrer"
-	      content="no-referrer"/>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xlu Stout 的个人博客</title>
+    <link rel="shortcut icon" href="./assets/images/头像_mini.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./assets/css/style.min.css">
+    <link rel="stylesheet" href="./assets/css/iconfont.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <meta name="referrer" content="no-referrer"/>
+    <script src="./assets/js/yuque-links.js"></script>
 </head>
 
 <body class="light-theme">
+	
+ 
+    <!-- 页面头部 -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <!-- 网站logo -->
+                <a href="#">
+                    <img src="./assets/images/logo-light.svg" alt="Xlu Stout Logo" width="150" height="40" class="logo-light">
+                    <img src="./assets/images/logo-dark.svg" alt="Xlu Stout Logo" width="150" height="40" class="logo-dark">
+                </a>
+                
+                <!-- 移动端按钮组 -->
+                <div class="btn-group">
+                    <button class="theme-btn theme-btn-mobile light">
+                        <ion-icon name="moon" class="moon"></ion-icon>
+                        <ion-icon name="sunny" class="sun"></ion-icon>
+                    </button>
+                    <button class="nav-menu-btn">
+                        <ion-icon name="menu-outline"></ion-icon>
+                    </button>
+                </div>
 
-<header style="height: 10vh">
-	<div class="container">
-		<nav class="navbar">
-			<a href="#">
-				<img src="./assets/images/logo-light.svg"
-				     alt="Xlu Stout Logo"
-				     width="150"
-				     height="40"
-				     class="logo-light">
-				<img src="./assets/images/logo-dark.svg"
-				     alt="Xlu Stout Logo"
-				     width="150"
-				     height="40"
-				     class="logo-dark">
-			</a>
-			<div class="btn-group">
-				<button class="theme-btn theme-btn-mobile light">
-					<ion-icon name="moon"
-					          class="moon"></ion-icon>
-					<ion-icon name="sunny"
-					          class="sun"></ion-icon>
-				</button>
-				<button class="nav-menu-btn">
-					<ion-icon name="menu-outline"></ion-icon>
-				</button>
-			</div>
+                <!-- 桌面端导航 -->
+                <div class="flex-wrapper">
+                    <ul class="desktop-nav">
+                        <li><a href="#" class="nav-link">首页</a></li>
+                        <li><a href="#" class="nav-link" data-yuque-link="about">关于我</a></li>
+                        <li><a href="#" class="nav-link" data-yuque-link="contact" target="_blank">联系我</a></li>
+                    </ul>
+                    <button class="theme-btn theme-btn-desktop light">
+                        <ion-icon name="moon" class="moon"></ion-icon>
+                        <ion-icon name="sunny" class="sun"></ion-icon>
+                    </button>
+                </div>
 
-			<div class="flex-wrapper">
-				<ul class="desktop-nav">
-					<li>
-						<a href="#"
-						   class="nav-link">首页</a>
-					</li>
-					<li>
-						<a href="https://www.yuque.com/xlu103"
-						   class="nav-link">关于我</a>
-					</li>
+                <!-- 移动端导航 -->
+                <div class="mobile-nav">
+                    <button class="nav-close-btn">
+                        <ion-icon name="close-outline"></ion-icon>
+                    </button>
+                    <div class="wrapper">
+                        <p class="h3 nav-title">菜单</p>
+                        <ul>
+                            <li class="nav-item"><a href="#" class="nav-link">主页</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link" data-yuque-link="about">关于我</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link" data-yuque-link="contact">联系我</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-					<li>
-						<a href="https://www.yuque.com/xlu103/rvt9mr/gqv7lqfh7kae0gnr?singleDoc"
-						   target="_blank"
-						   class="nav-link">联系我</a>
-					</li>
-				</ul>
+    <!-- 英雄区域 -->
+    <div class="hero" id="hero">
+        <div class="container">
+            <div class="left">
+                <h1 class="h1">
+                    <b id="my-name">Hi, I'm Xlu&nbsp;Stout</b>.
+                    <br>28线 程序员
+                </h1>
+                <p class="h3">
+                    会写一点 <abbr title="Accessibility">代码</abbr>
+                </p>
+                <div class="btn-group">
+                    <a href="#" target="_blank" class="btn btn-primary" data-yuque-link="contact">联系我</a>
+                    <a href="#" target="_blank" class="btn btn-secondary" data-yuque-link="about">关于我</a>
+                </div>
+            </div>
+            <div class="right">
+                <div class="pattern-bg"></div>
+                <div class="img-box" id="img-box">
+                    <img src="./assets/images/avatar.png" alt="Julia Walker" class="hero-img">
+                    <div class="shape shape-1"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-				<button class="theme-btn theme-btn-desktop light">
-					<ion-icon name="moon"
-					          class="moon"></ion-icon>
-					<ion-icon name="sunny"
-					          class="sun"></ion-icon>
-				</button>
+    <!-- 主要内容区 -->
+    <main class="main" id="main">
+        <div class="container">
+            <!-- 博客文章区域 -->
+            <div class="blog">
+                <h2 class="h2">最新博客文章</h2>
+                <div class="blog-card-group" id="blog-card-group">
+                    <!-- 博客卡片将通过JavaScript动态生成 -->
+                </div>
+            </div>
 
-			</div>
+            <script src="./assets/js/x-blog.js"></script>
 
-			<div class="mobile-nav">
-				<button class="nav-close-btn">
-					<ion-icon name="close-outline"></ion-icon>
-				</button>
-				<div class="wrapper">
-					<p class="h3 nav-title">菜单</p>
-					<ul>
-						<li class="nav-item">
-							<a href="#"
-							   class="nav-link">主页</a>
-						</li>
-						<li class="nav-item">
-							<a href="https://www.yuque.com/xlu103"
-							   class="nav-link">关于我</a>
-						</li>
+            <!-- 侧边栏 -->
+            <div class="aside">
+                <!-- 分类 -->
+                <div class="topics">
+                    <h2 class="h2">分类</h2>
+                    <a href="#" class="topic-btn">
+                        <div class="icon-box">
+                            <ion-icon name="server-outline"></ion-icon>
+                        </div>
+                        <p>知识库</p>
+                    </a>
+                    <a href="#" class="topic-btn">
+                        <div class="icon-box">
+                            <ion-icon name="book-outline"></ion-icon>
+                        </div>
+                        <p>文章</p>
+                    </a>
+                </div>
 
-						<li class="nav-item">
-							<a href="https://www.yuque.com/xlu103/rvt9mr/gqv7lqfh7kae0gnr?singleDoc"
-							   class="nav-link">联系我</a>
-						</li>
-					</ul>
-				</div>
-			</div>
+                <!-- 技能标签 -->
+                <div class="tags">
+                    <h2 class="h2">🤔会点啥?</h2>
+                    <div class="wrapper">
+                        <!-- 技能标签列表 -->
+                        <button class="hashtag">#C</button>
+                        <button class="hashtag">#Java</button>
+                        <!-- 更多技能标签... -->
+                    </div>
+                </div>
 
-		</nav>
-	</div>
-</header>
+                <!-- 联系方式 -->
+                <div class="contact">
+                    <h2 class="h2">😍开始 一场有趣交流?</h2>
+                    <div class="wrapper">
+                        <p>
+                            想了解更多关于我如何帮助您解决问题的信息吗?
+                            <br> 我们可以进行一次交流.
+                        </p>
+                        <ul class="social-link">
+                            <li id="icon-wechat">
+                                <a href="#" target="_blank" class="icon-box wechat" data-yuque-link="contact">
+                                    <ion-icon name="logo-wechat"></ion-icon>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/Xlu103" target="_blank" class="icon-box github">
+                                    <ion-icon name="logo-github"></ion-icon>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" target="_blank" class="icon-box yuque" data-yuque-link="homepage">
+                                    <span class="iconfont icon-yuque"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 
-<div class="hero  "  id="hero"
-     style="height: 90vh">
-	<div class="container">
-		<div class="left">
+    <!-- 页脚 -->
+    <footer id="footer">
+        <div class="container">
+            <div class="wrapper">
+                <a href="#" class="footer-logo">
+                    <img src="./assets/images/logo-light.svg" alt="Xlu Blog Logo" width="150" height="40" class="logo-light">
+                    <img src="./assets/images/logo-dark.svg" alt="Xlu Blog Logo" width="150" height="40" class="logo-dark">
+                </a>
+                <p class="footer-text">
+                    让我们一起来啃代码这块硬骨头吧!<br>
+                </p>
+            </div>
+            <div class="wrapper">
+                <p class="footer-title">直链</p>
+                <ul>
+                    <li>
+                        <a href="#" target="_blank" class="footer-link" data-yuque-link="contact">Xlu 的联系方式</a>
+                    </li>
+                    <li>
+                        <a href="#" class="footer-link" data-yuque-link="homepage">Xlu 的语雀</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <p class="copyright">
+            &copy; Copyright 2023 <a href="#">XLU STOUT BLOG</a>
+        </p>
+    </footer>
 
-			<h1 class="h1">
-				<b id="my-name">Hi, I'm Xlu&nbsp;Stout</b>.
-				<br>28线 程序员
-			</h1>
-
-			<p class="h3">
-				会写一点 <abbr title="Accessibility"> 代码 </abbr>
-			</p>
-
-			<div class="btn-group">
-				<a href="https://www.yuque.com/xlu103/rvt9mr/gqv7lqfh7kae0gnr?singleDoc"
-				   target="_blank"
-				   class="btn btn-primary">联系我</a>
-				<a href="http://www.yuque.com/xlu103"
-				   target="_blank"
-				   class="btn btn-secondary">关于我</a>
-			</div>
-
-		</div>
-
-		<div class="right">
-			<div class="pattern-bg"></div>
-			<div class="img-box" id="img-box">
-
-				<img src="./assets/images/avatar.png"
-				     alt="Julia Walker"
-				     class="hero-img">
-				<div class="shape shape-1"></div>
-				<!--<div class="shape shape-2"></div>-->
-			</div>
-
-		</div>
-
-	</div>
-
-</div>
-
-
-<main class="main"
-      id="main">
-
-	<div class="container">
-		<div class="blog">
-			<h2 class="h2">最新博客文章</h2>
-			<div class="blog-card-group" id="blog-card-group">
-				<!--<div class="blog-card">
-				<div class="blog-card-banner">
-					<img src="./assets/images/blog-1.png"
-						 alt="Building microservices with Dropwizard, MongoDB & Docker"
-						 width="250"
-						 class="blog-banner-img">
-				</div>
-
-				<div class="blog-content-wrapper">
-					<button class="blog-topic text-tiny">Database</button>
-					<h3>
-						<a href="#"
-						   class="h3">
-							Building microservices with Dropwizard, MongoDB & Docker
-						</a>
-					</h3>
-					<p class="blog-text">
-						This NoSQL database oriented to documents (by documents like JSON) combines some of the features
-						from relational databases, easy to use and the multi-platform is the best option for scale up and
-						have fault tolerance, load balancing, map reduce, etc.
-					</p>
-				</div>
-			</div>-->
-			</div>
-
-			<a class="btn load-more"
-			   href="https://yuque.com/xlu103">👀 查看更多</a>
-
-		</div>
-
-
-		<script src="./assets/js/x-blog.js"></script>
-
-		<div class="aside">
-			<div class="aside">
-
-				<div class="topics">
-					<h2 class="h2">分类</h2>
-					<a href="#"
-					   class="topic-btn">
-						<div class="icon-box">
-							<ion-icon name="server-outline"></ion-icon>
-						</div>
-
-						<p>知识库</p>
-					</a>
-
-					<a href="#"
-					   class="topic-btn">
-						<div class="icon-box">
-							<ion-icon name="book-outline"></ion-icon>
-						</div>
-						<p>文章</p>
-					</a>
-
-
-				</div>
-
-				<div class="tags">
-					<h2 class="h2">🤔会点啥?</h2>
-					<div class="wrapper">
-						<button class="hashtag">#C</button>
-						<button class="hashtag">#Java</button>
-						<button class="hashtag">#SpringBoot</button>
-						<button class="hashtag">#HTML5</button>
-						<button class="hashtag">#JavaScript</button>
-						<button class="hashtag">#CSS</button>
-						<button class="hashtag">#VUE.js</button>
-						<button class="hashtag">#Angular</button>
-						<button class="hashtag">#物联网云平台</button>
-						<button class="hashtag">#Thingsboard</button>
-						<button class="hashtag">#小程序</button>
-						<button class="hashtag">#UniApp</button>
-						<button class="hashtag">#Python</button>
-						<button class="hashtag">#Django</button>
-						<button class="hashtag">#OpenCV</button>
-						<button class="hashtag">#嵌入式</button>
-						<button class="hashtag">#树莓派</button>
-						<button class="hashtag">#Linux</button>
-						<button class="hashtag">#STM32</button>
-						<button class="hashtag">#Arduino</button>
-						<button class="hashtag">#ESP8266</button>
-						<button class="hashtag">#ESP32</button>
-						<button class="hashtag">#QT</button>
-					</div>
-				</div>
-
-				<div class="contact">
-					<h2 class="h2">😍开始 一场有趣交流?</h2>
-					<div class="wrapper">
-						<p>
-							想了解更多关于我如何帮助您解决问题的信息吗?
-							<br> 我们可以进行一次交流.
-						</p>
-						<ul class="social-link">
-							<li id="icon-wechat">
-								<a href="https://www.yuque.com/xlu103/rvt9mr/gqv7lqfh7kae0gnr?singleDoc"
-								   target="_blank"
-								   class="icon-box wechat">
-									<ion-icon name="logo-wechat"></ion-icon>
-								</a>
-							</li>
-							<li>
-								<a href="https://github.com/Xlu103"
-								   target="_blank"
-								   class="icon-box github">
-									<ion-icon name="logo-github"></ion-icon>
-								</a>
-							</li>
-							<li>
-								<a href="https://yuque.com/xlu103"
-								   target="_blank"
-								   class="icon-box yuque">
-									<span class="iconfont icon-yuque"></span>
-								</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-
-		</div>
-
-	</div>
-
-</main>
-
-
-
-<footer id="footer">
-
-	<div class="container">
-
-		<div class="wrapper">
-
-			<a href="#"
-			   class="footer-logo">
-				<img src="./assets/images/logo-light.svg"
-				     alt="Xlu Blog Logo"
-				     width="150"
-				     height="40"
-				     class="logo-light">
-				<img src="./assets/images/logo-dark.svg"
-				     alt="Xlu Blog Logo"
-				     width="150"
-				     height="40"
-				     class="logo-dark">
-			</a>
-
-			<p class="footer-text">
-				让我们一起探讨关于 编程 的问题吧
-			</p>
-
-		</div>
-
-		<div class="wrapper">
-
-			<p class="footer-title">直链</p>
-
-			<ul>
-
-				<li>
-					<a href="https://www.yuque.com/xlu103/rvt9mr/gqv7lqfh7kae0gnr?singleDoc"
-					   target="_blank"
-					   class="footer-link"> Xlu 的联系方式</a>
-				</li>
-
-				<li>
-					<a href="https://www.yuque.com/xlu103"
-					   class="footer-link"> Xlu 的语雀</a>
-				</li>
-
-				<!--<li>-->
-				<!--	<a href="#"-->
-				<!--	   class="footer-link">Contact Us</a>-->
-				<!--</li>-->
-
-			</ul>
-
-		</div>
-
-		<!--	<div class="wrapper">
-			<p class="footer-title">Legal Stuff</p>
-			<ul>
-				<li>
-					<a href="#"
-					   class="footer-link">Privacy Notice</a>
-				</li>
-
-				<li>
-					<a href="#"
-					   class="footer-link">Cookie Policy</a>
-				</li>
-
-				<li>
-					<a href="#"
-					   class="footer-link">Terms Of Use</a>
-				</li>
-			</ul>
-		</div>
--->
-	</div>
-
-	<p class="copyright">
-		&copy; Copyright 2023 <a href="#">XLU STOUT BLOG</a>
-	</p>
-</footer>
-
-<script src="./assets/js/script.min.js"></script>
-<script src="./assets/js/scroll.js"></script>
-
-<script type="module"
-        src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule
-        src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <!-- 脚本引用 -->
+    <script src="./assets/js/fetchDom.js"></script>
+    <script src="./assets/js/script.min.js"></script>
+    <script src="./assets/js/scroll.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+	
 </body>
 
 </html>

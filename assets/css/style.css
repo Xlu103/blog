@@ -2,6 +2,7 @@
   #CUSTOM PROPERTY
 \*-----------------------------------*/
 
+ 
 .light-theme {
 
     /**
@@ -18,7 +19,9 @@
     --foreground-secondary: hsl(216, 15%, 52%);
     --foreground-tertiary: hsl(214, 20%, 69%);
 
-    --accent: linear-gradient(25deg, #c81df1, #ba88d0, #98c7ac, #33ff81)
+    --accent: linear-gradient(25deg, #c81df1, #ba88d0, #98c7ac, #33ff81);
+
+    --gradient-background-top: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898;
 
 }
 
@@ -38,7 +41,9 @@
     --foreground-secondary: hsl(211, 25%, 84%);
     --foreground-tertiary: hsl(214, 20%, 69%);
 
-    --accent: linear-gradient(25deg, #c81df1, #ba88d0, #98c7ac, #33ff81)
+    --accent: linear-gradient(25deg, #c81df1, #ba88d0, #98c7ac, #33ff81);
+
+    --gradient-background-top: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #1c1c1c;
 
 }
 

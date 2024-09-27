@@ -28,27 +28,47 @@ window.addEventListener('load', () => {
 
 
 const hero = document.getElementById('img-box');
+let isRotating = false;
+let rotationX = 0;
+let rotationY = 0;
 
-const heroX = 20;
-let intervalEvent = null;
 hero.addEventListener('mouseenter', () => {
-    // 鼠标移入的时候，hero的margin从左、上、右、下随机的移动，100ms改变一次
-    intervalEvent = setInterval(() => {
-        hero.style.margin = `${Math.random() * heroX}px ${Math.random() * heroX}px ${Math.random() * heroX}px ${Math.random() * heroX}px`
-    }, 100);
+    isRotating = true;
+    rotateHero();
 });
 
-// 鼠标移出时，恢复到默认状态，取消随机移动
 hero.addEventListener('mouseleave', () => {
-    clearInterval(intervalEvent);
-    setTimeout(() => {
-            hero.style.margin = "0px"
-        },
-        0);
+    isRotating = false;
+    resetRotation();
 });
 
+hero.addEventListener('mousemove', (e) => {
+    if (isRotating) {
+        const rect = hero.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        rotationY = ((e.clientX - centerX) / rect.width) * 20;
+        rotationX = ((e.clientY - centerY) / rect.height) * 20;
+    }
+});
 
-// 一直重复打字机效果在myName上
+function rotateHero() {
+    if (isRotating) {
+        hero.style.transform = `perspective(1000px) rotateX(${rotationX}deg) rotateY(${rotationY}deg)`;
+        requestAnimationFrame(rotateHero);
+    }
+}
+
+function resetRotation() {
+    hero.style.transition = 'transform 0.5s ease-out';
+    hero.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+    setTimeout(() => {
+        hero.style.transition = '';
+    }, 500);
+}
+
+
+
 function typeWriter(text, element, speed) {
     let currentIndex = 0;
     const timer = setInterval(() => {
@@ -62,11 +82,9 @@ function typeWriter(text, element, speed) {
 }
 
 const myNameElement = document.getElementById("my-name");
-const myNameTest = "Hi, I'm Xlu Stout"
+const myNameTest = "👋 Hi, I'm Xlu Stout 🫎"
 
-
-setInterval(() => {
-    typeWriter(myNameTest, myNameElement, 100)
-}, 2000);
+// 只执行一次打字机效果
+typeWriter(myNameTest, myNameElement, 100);
 
 
