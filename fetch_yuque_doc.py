@@ -4,7 +4,9 @@ import json
 import os
 import re
 def fetch_yuque_doc():
-    url = 'https://www.yuque.com/xlu103/re/qkxru83yf80cyhez?singleDoc'
+    import random
+    random_number = random.randint(1, 1000000)
+    url = f'https://www.yuque.com/xlu103/re/qkxru83yf80cyhez?singleDoc&random={random_number}'
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
     }
@@ -15,20 +17,20 @@ def fetch_yuque_doc():
         if not cookie:
             print("错误:未能从 GitHub Actions 的 secrets 中获取 YUQUE_COOKIE")
             return
-        
         headers['Cookie'] = cookie
-        
         response = requests.get(url, headers=headers)
         response.raise_for_status()
-        
         soup = BeautifulSoup(response.text, 'html.parser')
+        print(soup)
         # 查找特定格式的链接
         link_pattern = r'https%3A%2F%2Fwww\.yuque\.com%2Fxlu103%2Frvt9mr%2F([a-zA-Z0-9]+)%22%2C%22'
         matches = soup.find_all(string=lambda text: text and re.search(link_pattern, text))
         
         article_list = []
         if matches:
+
             for match in matches:
+            
                 link_ids = re.findall(link_pattern, match)
                 for link_id in link_ids:
                     full_link = f"https://www.yuque.com/xlu103/rvt9mr/{link_id}"

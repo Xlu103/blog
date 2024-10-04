@@ -1133,3 +1133,51 @@ footer .wrapper {
     }
 
 }
+
+
+.article-card-group {
+    display: grid;
+    /* grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); */
+    gap: 30px;
+    margin-top: 50px;
+  }
+
+  .blog-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .blog-card-banner img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  .blog-content-wrapper {
+    padding: 20px;
+  }
+
+  .blog-content-wrapper h3 {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+  }
+
+  .blog-text {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 15px;
+  }
+
+  .text-sm {
+    font-size: 0.8em;
+    color: #999;
+  }
