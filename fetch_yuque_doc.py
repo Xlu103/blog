@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import json
 import os
 import re
+import urllib.parse
 def fetch_yuque_doc():
     import random
     random_number = random.randint(1, 1000000)
@@ -21,22 +22,30 @@ def fetch_yuque_doc():
         response = requests.get(url, headers=headers)
         response.raise_for_status()
         soup = BeautifulSoup(response.text, 'html.parser')
-        print(soup)
-        # 查找特定格式的链接
-        link_pattern = r'https%3A%2F%2Fwww\.yuque\.com%2Fxlu103%2Frvt9mr%2F([a-zA-Z0-9]+)%22%2C%22'
-        matches = soup.find_all(string=lambda text: text and re.search(link_pattern, text))
-        
-        article_list = []
-        if matches:
-
-            for match in matches:
-            
-                link_ids = re.findall(link_pattern, match)
-                for link_id in link_ids:
-                    full_link = f"https://www.yuque.com/xlu103/rvt9mr/{link_id}"
+        # print(soup)
+        # 把 soup 中 开头为 decodeURIComponent(" 结尾为 ") 之间的内容提取出来
+        content = soup.find('script', string=re.compile(r'decodeURIComponent\("'))
+        if content:
+            content = content.string
+            content = content.split('decodeURIComponent("')[1].split('")')[0]
+            # 解码 decodeURIComponent
+            content = urllib.parse.unquote(content)
+            # print(content)
+            # 找到特定格式的链接
+            pattern = r'"book_id":37513741,"cover":null,"description":"(.*?)"'
+            match = re.search(pattern, content)
+            article_list=[]
+            if match:
+                description = match.group(1)
+                links = re.findall(r'https://www\.yuque\.com/xlu103/[^\s\n]+', description)
+                links = [link for url in links for link in url.split('\\n')]
+                for link in links:
+                    print(link)
+             
+ 
                     try:
                         # 访问完整链接,获取到 dom 中 id 为 article-title 的内容
-                        response = requests.get(full_link, headers=headers)
+                        response = requests.get(link, headers=headers)
                         response.raise_for_status()
                         
                         soup = BeautifulSoup(response.text, 'html.parser')
@@ -75,23 +84,23 @@ def fetch_yuque_doc():
                             "image": article_image,
                             "create_time": article_create_time,
                             "update_time": article_update_time,
-                            "link": full_link
+                            "link": link
                         }
                         article_list.append(article_data)
                         print(f"已添加文章: {article_title}")
                     except requests.RequestException as e:
-                        print(f"获取文章 {full_link} 时出错: {e}")
+                        print(f"获取文章 {link} 时出错: {e}")
                     except ValueError as e:
-                        print(f"处理文章 {full_link} 数据时出错: {e}")
+                        print(f"处理文章 {link} 数据时出错: {e}")
                     except Exception as e:
-                        print(f"处理文章 {full_link} 时发生未知错误: {e}")
-        else:
-            print("未找到符合格式的链接")
-        
-        # 将article_list存储到 JS 文件中
-        with open('yuque_doc.js', 'w', encoding='utf-8') as f:
-            f.write(f"const articleList = {json.dumps(article_list, ensure_ascii=False, indent=2)};")
-        print("article_list已保存到 yuque_doc.js 文件中")
+                        print(f"处理文章 {link} 时发生未知错误: {e}")
+                else:
+                    print("未找到符合格式的链接")
+                
+                # 将article_list存储到 JS 文件中
+                with open('yuque_doc.js', 'w', encoding='utf-8') as f:
+                    f.write(f"const articleList = {json.dumps(article_list, ensure_ascii=False, indent=2)};")
+                print("article_list已保存到 yuque_doc.js 文件中")
          
     
     except requests.RequestException as e:
