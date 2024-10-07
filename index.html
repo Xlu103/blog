@@ -148,77 +148,30 @@
     <main class="main" id="main">
       <div class="container">
         <!-- 博客文章区域 -->
-
         <div class="blog">
-
-          <h2 class="h2">知识库</h2>
-          <div class="blog-card-group" id="blog-card-group">
-            <!-- 博客卡片将通过JavaScript动态生成 -->
-          </div>
-          <script src="./assets/js/x-blog.js"></script>
-          
+        
           <h2 class="h2">最新文章</h2>
           <div class="article-card-group" id="article-card-group"></div>
-          <!-- 文章卡片将通过JavaScript动态生成 -->
-          <script src="./yuque_doc.js"></script>
-          <script>
-            let articleCardGroup = document.querySelector(
-              "#article-card-group"
-            );
-            // 遍历articleList并生成HTML卡片
-            for (let article of articleList) {
-              let articleCard = document.createElement("div");
-              articleCard.className = "blog-card";
-
-              let banner = document.createElement("div");
-              banner.className = "blog-card-banner";
-              let bannerImg = document.createElement("img");
-              bannerImg.src = article.image;
-              bannerImg.alt = article.title;
-              bannerImg.width = "250";
-              bannerImg.className = "blog-banner-img";
-              banner.appendChild(bannerImg);
-              articleCard.appendChild(banner);
-
-              let contentWrapper = document.createElement("div");
-              contentWrapper.className = "blog-content-wrapper";
-
-              let titleLink = document.createElement("a");
-              titleLink.href = article.url;
-              titleLink.className = "h3";
-              titleLink.textContent = article.title;
-              let title = document.createElement("h3");
-              title.appendChild(titleLink);
-              contentWrapper.appendChild(title);
-
-              let description = document.createElement("p");
-              description.className = "blog-text";
-              description.textContent = article.description;
-              contentWrapper.appendChild(description);
-
-              let wrapperFlex = document.createElement("div");
-              wrapperFlex.className = "wrapper-flex";
-              let wrapper = document.createElement("div");
-              wrapper.className = "wrapper";
-              let timeInfo = document.createElement("p");
-              timeInfo.className = "text-sm";
-              timeInfo.innerHTML = `
-                  <time datetime="${article.create_time}">创建时间: ${article.create_time}</time>
-                  <span class="separator"></span>
-                  <time datetime="${article.update_time}">更新时间: ${article.update_time}</time>
-              `;
-              wrapper.appendChild(timeInfo);
-              wrapperFlex.appendChild(wrapper);
-              contentWrapper.appendChild(wrapperFlex);
-
-              articleCard.appendChild(contentWrapper);
-              articleCardGroup.appendChild(articleCard);
-            }
-          </script>
-           
+          <h2 class="h2">知识库</h2>
+          <div class="blog-card-group" id="blog-card-group"></div>
         </div>
+        <!-- 博客卡片将通过JavaScript动态生成 -->
+        <script src="./assets/js/x-blog.js"></script>
+        <!-- 文章卡片将通过JavaScript动态生成 -->
+        <script src="./yuque_doc.js"></script>
+        <script src="./assets/js/fetchDom.js"></script>
+
         <!-- 侧边栏 -->
-        <div class="aside" style="position: sticky; top: 20px; align-self: flex-start; max-height: calc(100vh - 40px); overflow-y: auto;">
+        <div
+          class="aside"
+          style="
+            position: sticky;
+            top: 20px;
+            align-self: flex-start;
+            max-height: calc(100vh - 40px);
+            overflow-y: auto;
+          "
+        >
           <!-- 分类 -->
           <div class="topics">
             <h2 class="h2">分类</h2>
@@ -242,8 +195,9 @@
             <div class="wrapper">
               <!-- 技能标签列表 -->
               <button class="hashtag">#C</button>
-              <button class="hashtag">#Java</button>
-              <!-- 更多技能标签... -->
+              <button class="hashtag">#嵌入式</button>
+              <button class="hashtag">#单片机</button>
+              <button class="hashtag">#物联网</button>
             </div>
           </div>
 
@@ -251,11 +205,7 @@
           <div class="contact">
             <h2 class="h2">😍开始 一场有趣交流?</h2>
             <div class="wrapper">
-              <p>
-                想了解更多关于我如何帮助您解决问题的信息吗?
-                <br />
-                我们可以进行一次交流.
-              </p>
+              <p>联系我</p>
               <ul class="social-link">
                 <li id="icon-wechat">
                   <a
